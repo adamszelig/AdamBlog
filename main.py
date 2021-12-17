@@ -112,7 +112,7 @@ class Comment(db.Model):
 
 
 #######################  If database should be newly created  #####################
-# db.create_all()
+db.create_all()
 
 
 @app.route('/')
