@@ -208,14 +208,14 @@ def about():
 def contact():
     if request.method == "POST":
         data = request.form
-        my_email = "szelig.adam.gyorgy@gmail.com"
+        my_email = ""
         email_password = ""
         with smtplib.SMTP("smtp.gmail.com") as connection:
             connection.starttls()
             connection.login(user=my_email, password=email_password)
             connection.sendmail(
                 from_addr=my_email,
-                to_addrs="adamboy007@gmail.com", msg=f'Subject:New Message\n\nName: {data["name"]}\nEmail: {data["email"]}\nPhone: {data["phone"]}\nMessage:{data["message"]}'
+                to_addrs="", msg=f'Subject:New Message\n\nName: {data["name"]}\nEmail: {data["email"]}\nPhone: {data["phone"]}\nMessage:{data["message"]}'
             )
         return render_template("contact.html", msg_sent=True)
     return render_template("contact.html", msg_sent=False, current_user=current_user)
